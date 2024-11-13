@@ -1,8 +1,8 @@
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 #import <substrate.h>
 
-namespace sce {
-    namespace EMBlackPearlIsFeatureEnabled {
+namespace mce {
+    namespace _EMBlackPearlIsFeatureEnabled {
         BOOL (*original)(void);
         BOOL custom(void) {
             return YES;
@@ -21,7 +21,7 @@ namespace sce {
 }
 
 __attribute__((constructor)) static void init() {
-    @autoreleasepool {
-        sce::EMBlackPearlIsFeatureEnabled::hook();
-    }
+    NSAutoreleasePool *pool = [NSAutoreleasePool new];
+    mce::_EMBlackPearlIsFeatureEnabled::hook();
+    [pool release];
 }
